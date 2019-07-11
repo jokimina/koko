@@ -1,4 +1,5 @@
 
+
 BRANCH := $(shell git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3)
 BUILD := $(shell git rev-parse --short HEAD)
 VERSION = $(BRANCH)-$(BUILD)
@@ -11,9 +12,9 @@ GOCMD = go
 GOBUILD = $(GOCMD) build
 
 SOFTWARENAME=$(NAME)-$(VERSION)
-KOKOSRCFILE= koko.go
-BUILDDIR:=$(BASEPATH)/../build
-ASSETS=locale static templates config_example.yml
+KOKOSRCFILE= cmd/koko.go
+BUILDDIR:=$(BASEPATH)/build
+ASSETS=cmd/locale cmd/static cmd/templates cmd/config_example.yml
 
 PLATFORMS := linux darwin
 
